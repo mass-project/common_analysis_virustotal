@@ -1,5 +1,6 @@
 from common_analysis_base import AnalysisPlugin, FileAnalysisMixin, URLAnalysisMixin, IPAnalysisMixin, DomainAnalysisMixin
-from common_helper_files import get_directory_for_filename, get_version_string_from_git, md5sum
+from common_helper_files import md5sum
+from . import __version__
 from virus_total_apis import PrivateApi as VirustotalApi
 import logging
 import time
@@ -10,7 +11,7 @@ import threading
 logger = logging.getLogger('CommonAnalysisVirusTotal')
 logger.setLevel(logging.INFO)
 
-system_version = get_version_string_from_git(get_directory_for_filename(__file__))
+system_version = __version__
 
 VT_FILE_ANALYZIS_PENDING = -2
 VT_FILE_UNKOWN = 0
